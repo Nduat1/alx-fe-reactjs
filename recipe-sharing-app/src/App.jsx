@@ -1,9 +1,16 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
+import RecipeDetails from './components/RecipeDetails';
+import RecipeDetails from './components/EditRecipeForm';
+import RecipeDetails from './components/DeleteRecipeButton';
+import DeleteRecipeButton from './components/DeleteRecipeButton';
+
+
 
 
 function App() {
@@ -11,8 +18,15 @@ function App() {
 
   return (
     <>
+    <Router>
     <AddRecipeForm />
     <RecipeList />
+    <EditRecipeForm />
+    <DeleteRecipeButton />
+    <Routes>
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+    </Router>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
