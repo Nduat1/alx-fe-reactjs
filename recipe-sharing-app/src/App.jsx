@@ -9,6 +9,7 @@ import RecipeDetails from './components/RecipeDetails';
 import RecipeDetails from './components/EditRecipeForm';
 import RecipeDetails from './components/DeleteRecipeButton';
 import DeleteRecipeButton from './components/DeleteRecipeButton';
+import SearchBar from './components/SearchBar';
 
 
 
@@ -23,6 +24,7 @@ function App() {
     <RecipeList />
     <EditRecipeForm />
     <DeleteRecipeButton />
+    <SearchBar />
     <Routes>
           <Route path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
