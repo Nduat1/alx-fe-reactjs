@@ -21,14 +21,14 @@ function App() {
   return (
     <>
     <Router>
-    <AddRecipeForm />
-    <RecipeList />
-    <EditRecipeForm />
-    <DeleteRecipeButton />
-    <SearchBar />
-    <Routes>
-          <Route path="/recipe/:id" element={<RecipeDetails />} />
-        </Routes>
+      <AddRecipeForm />
+      <RecipeList />
+      <EditRecipeForm />
+      <DeleteRecipeButton />
+      <SearchBar />
+      <Routes>
+        <Route path="/recipe/:id" element={<RecipeDetails />} />
+      </Routes>
     </Router>
       <div>
         <a href="https://vite.dev" target="_blank">

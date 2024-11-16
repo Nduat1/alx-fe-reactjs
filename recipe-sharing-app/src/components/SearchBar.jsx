@@ -5,15 +5,16 @@ const SearchBar = () => {
   const setSearchTerm = useRecipeStore((state) => state.setSearchTerm);
   const filterRecipes = useRecipeStore((state) => state.filterRecipes);
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-    filterRecipes(); // Triggers filtering whenever search term changes
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    filterRecipes();
   };
 
   return (
     <input
       type="text"
-      placeholder="Search recipes..."
+      placeholder="Search for a recipe..."
       onChange={handleSearch}
     />
   );
