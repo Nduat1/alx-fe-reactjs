@@ -9,20 +9,17 @@ const RegistrationForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Basic validation: Check if all fields are filled
     if (!formData.username || !formData.email || !formData.password) {
-      alert("All fields are required!");
+      alert("All fields are required.");
       return;
     }
     console.log("Form submitted:", formData);
-    // Simulate API call or further processing
   };
 
   return (
@@ -33,9 +30,8 @@ const RegistrationForm = () => {
           type="text"
           id="username"
           name="username"
-          value={formData.username} // Controlled input
+          value={formData.username} // Controlled component: Value is linked to state
           onChange={handleChange}
-          placeholder="Enter your username"
         />
       </div>
       <div>
@@ -44,9 +40,8 @@ const RegistrationForm = () => {
           type="email"
           id="email"
           name="email"
-          value={formData.email} // Controlled input
+          value={formData.email} // Controlled component: Value is linked to state
           onChange={handleChange}
-          placeholder="Enter your email"
         />
       </div>
       <div>
@@ -55,9 +50,8 @@ const RegistrationForm = () => {
           type="password"
           id="password"
           name="password"
-          value={formData.password} // Controlled input
+          value={formData.password} // Controlled component: Value is linked to state
           onChange={handleChange}
-          placeholder="Enter your password"
         />
       </div>
       <button type="submit">Register</button>
