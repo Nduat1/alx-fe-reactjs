@@ -1,12 +1,17 @@
-import ProtectedRoute from "./components/ProtectedRoute";
+import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 
-const isAuthenticated = true; // Simulate authentication status
+const ProtectedRoute = ({ children }) => {
+  // Simulated authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-<Route
-  path="/profile/*"
-  element={
-    <ProtectedRoute isAuthenticated={isAuthenticated}>
-      <Profile />
-    </ProtectedRoute>
+  // If the user is not authenticated, redirect to the login page
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
   }
-/>;
+
+  // If authenticated, render the children
+  return children;
+};
+
+export default ProtectedRoute;
