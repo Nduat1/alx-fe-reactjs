@@ -30,6 +30,9 @@ const HomePage = () => {
                     <p className="text-gray-600 mt-2">{recipe.summary}</p>
                     </div>
                 </Link>
+                <Link to="/add-recipe" className="text-blue-500 hover:underline">
+                Add New Recipe
+                </Link>
             </div>
           
         ))}
