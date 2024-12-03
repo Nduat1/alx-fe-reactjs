@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 
+
 function HomePage() {
     const[recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch("./data.json")
-        .then((response) => response,json())
+        fetch('./data.json')
+        .then((response) => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then((data) => setRecipes(data))
-        .catch((error) => console.error("Error loading recipes:", error))
+        .catch((error) => console.error('Fetch error:', error));
     }, []);
 
     return ( 
