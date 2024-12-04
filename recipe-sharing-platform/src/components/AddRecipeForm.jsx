@@ -9,7 +9,7 @@ const AddRecipeForm = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // Ensure target and value are correctly accessed
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -47,7 +47,7 @@ const AddRecipeForm = () => {
           <input
             type="text"
             id="title"
-            name="title"
+            name="title" // Matches the formData keys
             value={formData.title}
             onChange={handleChange}
             className="w-full border border-gray-300 rounded px-4 py-2"
@@ -61,7 +61,7 @@ const AddRecipeForm = () => {
           </label>
           <textarea
             id="ingredients"
-            name="ingredients"
+            name="ingredients" // Matches the formData keys
             value={formData.ingredients}
             onChange={handleChange}
             className="w-full border border-gray-300 rounded px-4 py-2"
@@ -76,7 +76,7 @@ const AddRecipeForm = () => {
           </label>
           <textarea
             id="steps"
-            name="steps"
+            name="steps" // Matches the formData keys
             value={formData.steps}
             onChange={handleChange}
             className="w-full border border-gray-300 rounded px-4 py-2"
