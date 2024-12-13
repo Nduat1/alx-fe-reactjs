@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const Search = () => {
     const [username, setUsername] = useState('');
@@ -11,24 +11,23 @@ const Search = () => {
         setLoading(true);
         setError('');
         try {
-          const data = await fetchUserData(username);
-          setUserData(data);
+            const data = await fetchUserData(username);
+            setUserData(data);
         } catch (err) {
-          setError('Looks like we can’t find the user');
+            setError("Looks like we can't find the user"); // Corrected the apostrophe
         } finally {
-          setLoading(false);
+            setLoading(false);
         }
-      };
-
+    };
 
     return ( 
         <>
             <form onSubmit={handleSearch}>
                 <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter GitHub username"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Enter GitHub username"
                 />
                 <button type="submit">Search</button>
             </form>
@@ -36,11 +35,11 @@ const Search = () => {
             {error && <p>{error}</p>}
             {userData && (
                 <div>
-                <img src={userData.avatar_url} alt={`${userData.login}'s avatar`} />
-                <h2>{userData.name || userData.login}</h2>
-                <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-                    View Profile
-                </a>
+                    <img src={userData.avatar_url} alt={`${userData.login}'s avatar`} />
+                    <h2>{userData.name || userData.login}</h2>
+                    <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+                        View Profile
+                    </a>
                 </div>
             )}
         </>
