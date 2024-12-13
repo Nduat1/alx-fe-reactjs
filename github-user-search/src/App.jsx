@@ -1,15 +1,12 @@
 import React from "react"
-import { Route, RouterProvider, Routes } from "react-router-dom"
+import Search from "./components/Search"
 
 function App() {
   
   return (
     <>
-      <Route>
-        <Routes>
-          <RouterProvider></RouterProvider>
-        </Routes>
-      </Route>
+      <h1>Github User Search</h1>
+      <Search />
     </>
   )
 }
